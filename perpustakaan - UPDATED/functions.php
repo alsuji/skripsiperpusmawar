@@ -1,6 +1,6 @@
 <?php 
 // koneksi ke db
-$koneksi = mysqli_connect("localhost", "root", "", "dbperpus");
+$koneksi = mysqli_connect("localhost", "root", "root", "skripsi_perpus_mawar");
 // Jangan Lupa ganti dbname dll - ketika hosting
 
 // Jangan lupa ganti Auto Increment - NULL
@@ -112,7 +112,7 @@ function registrasi($data) {
 	$password = password_hash($password, PASSWORD_DEFAULT);
 
 	// tambahkan user baru ke database
-	mysqli_query($koneksi, "INSERT INTO users VALUES('', '$nama', '$npm', '$jurusan', '$fakultas', '$password')");
+	mysqli_query($koneksi, "INSERT INTO users (nama,npm, jurusan, fakultas, password) VALUES ('$nama', '$npm', '$jurusan', '$fakultas', '$password')");
 
 		return mysqli_affected_rows($koneksi);
 
@@ -251,7 +251,8 @@ function simpanbuku($datapinjaman) {
 
 function kembalikan($id) {
 	global $koneksi;
-	mysqli_query($koneksi, "DELETE FROM datapinjaman WHERE id_pinjaman = $id");
+	// mysqli_query($koneksi, "DELETE FROM datapinjaman WHERE id_pinjaman = $id");
+	mysqli_query($koneksi, "UPDATE datapinjaman set status='Dikembalikan' WHERE id_pinjaman = $id");
 	return mysqli_affected_rows($koneksi);
 }
 

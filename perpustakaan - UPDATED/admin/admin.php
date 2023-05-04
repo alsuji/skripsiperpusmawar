@@ -12,9 +12,9 @@ $mahasiswa = mysqli_num_rows($mhs);
 $bk = mysqli_query($koneksi, "SELECT * FROM buku");
 $buku = mysqli_num_rows($bk);
 // tombol cari ditekan
-if ( isset($_POST["cari"]) ) {
-	$buku = cari($_POST["keyword"]);
-}
+// if ( isset($_POST["cari"]) ) {
+// 	$buku = cari($_POST["keyword"]);
+// }
 ?>
 
 <!DOCTYPE html>
@@ -53,15 +53,10 @@ if ( isset($_POST["cari"]) ) {
 <div class="container">
 	<h2>Selamat Datang, <?php echo $_SESSION['username']; ?></h2>
 
-	<form action="" method="post">
+	<form action="halamanbuku.php" method="get">
 	
 		<input type="text" name="keyword" size="40" placeholder="Masukkan keyword pencarian.." autocomplete="off">
 		<button type="submit" name="cari">Cari</button>
-
-<!-- Button add
-		<div class="add">
-			<a href="regist.php" class="regist">Tambah Data</a>
-		</div> -->
 
 	</form>
 

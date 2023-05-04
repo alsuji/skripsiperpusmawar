@@ -7,12 +7,11 @@ if( !isset($_SESSION["login-admin"]) ) {
 }
 
 require '../functions.php';
-$buku = query2("SELECT * FROM buku");
 $mahasiswa = query("SELECT * FROM users");
 
 // tombol cari ditekan
-if ( isset($_POST["cari"]) ) {
-	$buku = cari($_POST["keyword"]);
+if ( isset($_GET["cari"]) ) {
+	$mahasiswa = query("SELECT * FROM users where nama like '%" . $_GET["keyword"] . "%' or npm like '%" . $_GET["keyword"] . "%' or jurusan like '%" . $_GET["keyword"] . "%' or fakultas like '%" . $_GET["keyword"] . "%'");
 }
 ?>
 
@@ -52,9 +51,9 @@ if ( isset($_POST["cari"]) ) {
 <div class="container">
 	<h2>Selamat Datang, admin</h2>
 
-	<form action="" method="post">
+	<form action="" method="get">
 	
-		<input type="text" name="keyword" size="40" autofocus placeholder="Masukkan keyword pencarian.." autocomplete="off">
+		<input type="text" name="keyword" size="40" autofocus placeholder="Masukkan keyword pencarian.." autocomplete="off" value="<?= ($_GET['keyword'] ?? '') ?>">
 		<button type="submit" name="cari">Cari</button>
 
 	</form>

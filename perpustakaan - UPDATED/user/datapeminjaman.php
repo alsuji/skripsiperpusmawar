@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if( !isset($_SESSION["login"]) ) {
+if (!isset($_SESSION["login"])) {
 	header("Location: ../login.php");
 	exit;
 }
@@ -14,20 +14,23 @@ $un 	 = $_SESSION['nama'];
 $q = mysqli_query($koneksi, "SELECT * FROM users");
 $data = mysqli_num_rows($q);
 
-
-$datapinjaman = query2("SELECT * FROM datapinjaman 
-				WHERE id_user = '$id_user' 
-				");
+if (isset($_GET['keyword'])) {
+	$datapinjaman = query2("SELECT * FROM datapinjaman WHERE id_user = '$id_user' and judul_buku like '%" . $_GET['keyword'] . "%' order by id_pinjaman desc ");
+} else {	
+	$datapinjaman = query2("SELECT * FROM datapinjaman WHERE id_user = '$id_user' order by id_pinjaman desc ");
+}
 
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<title>Menu Pinjaman</title>
 	<link rel="stylesheet" href="../css/admin.css">
 </head>
+
 <body>
 	<!-- Header -->
 	<header>
@@ -37,65 +40,68 @@ $datapinjaman = query2("SELECT * FROM datapinjaman
 			</a>
 			<h1>Perpustakaan Mawar</h1>
 		</div>
-			<ul class="nav nav-tabs">
-			  <li class="nav-item">
+		<ul class="nav nav-tabs">
+			<li class="nav-item">
 				<a class="logout" href="../logout.php">Log out</a>
-			  </li>
-			</ul>
+			</li>
+		</ul>
 	</header>
 
-<div class="container">
-	<h2>Selamat Datang, <?= $un; ?></h2>
+	<div class="container">
+		<h2>Selamat Datang, <?= $un; ?></h2>
 
-	<form action="" method="post">
-	
-		<input type="text" name="keyword" size="40" autofocus placeholder="Masukkan keyword pencarian.." autocomplete="off">
-		<button type="submit" name="cari">Cari</button>
+		<form action="" method="get">
 
-	</form>
+			<input type="text" name="keyword" size="40" autofocus placeholder="Masukkan keyword pencarian.." autocomplete="off" value="<?= ($_GET['keyword'] ?? '') ?>">
+			<button type="submit" name="cari">Cari</button>
 
-	<div class="btn-wrapper">
-		<a class="btn signup" href="pinjambuku.php" style="font-size: 18px;">Pinjam Buku</a>
+		</form>
+
+		<div class="btn-wrapper">
+			<a class="btn signup" href="pinjambuku.php" style="font-size: 18px;">Pinjam Buku</a>
+		</div>
+
+		<br>
+		<table border="1" width="100%" cellpadding="8" cellspacing="0">
+
+			<tr>
+				<th width="1%">No.</th>
+				<th>Nama Peminjam</th>
+				<th>Judul Buku</th>
+				<th>Tanggal Pinjam</th>
+				<th>Tanggal Kembali</th>
+				<th>Lama Pinjam</th>
+				<th>Status</th>
+				<th>Denda</th>
+				<th>Aksi</th>
+			</tr>
+
+			<?php $i = 1 ?>
+			<?php foreach ($datapinjaman as $row) : ?>
+				<tr>
+					<td><?= $i; ?></td>
+					<td><?= $row["nama_peminjam"]; ?></td>
+					<td><?= $row["judul_buku"]; ?></td>
+					<td><?= $row["tgl_pinjam"]; ?></td>
+					<td><?= $row["tgl_kembali"]; ?></td>
+					<td><?= $row["lama_pinjam"]; ?> Hari</td>
+					<td><?= $row["status"]; ?></td>
+					<td>Rp <?= $row["denda"]; ?></td>
+					<td>
+						<?php if ($row['status'] != 'Dikembalikan') : ?>
+							<div class="btn-wrapper">
+								<a class="btn signup" href="kembalikan.php?id_pinjaman=<?= $row["id_pinjaman"]; ?>" onclick="return confirm('Yakin akan mengembalikan buku ini?');">Kembalikan</a> |
+								<a class="btn signup" href="https://saweria.co/perpustakaanmawar" ;>Bayar Denda</a>
+							</div>
+						<?php endif; ?>
+					</td>
+				</tr>
+				<?php $i++; ?>
+			<?php endforeach; ?>
+		</table>
 	</div>
-
-	<br>
-	<table border="1" width="100%" cellpadding="8" cellspacing="0">
-
-		<tr>
-			<th width="1%">No.</th>
-			<th>Nama Peminjam</th>
-			<th>Judul Buku</th>
-			<th>Tanggal Pinjam</th>
-			<th>Tanggal Kembali</th>
-			<th>Lama Pinjam</th>
-			<th>Status</th>
-			<th>Denda</th>
-			<th>Aksi</th>
-		</tr>
-
-		<?php $i = 1 ?>
-		<?php foreach( $datapinjaman as $row ) : ?>
-		<tr>
-			<td><?= $i; ?></td>
-			<td><?= $row["nama_peminjam"]; ?></td>
-			<td><?= $row["judul_buku"]; ?></td>
-			<td><?= $row["tgl_pinjam"]; ?></td>
-			<td><?= $row["tgl_kembali"]; ?></td>
-			<td><?= $row["lama_pinjam"]; ?> Hari</td>
-			<td><?= $row["status"]; ?></td>
-			<td>Rp <?= $row["denda"]; ?></td>
-			<td>
-				<div class="btn-wrapper">
-					<a class="btn signup" href="kembalikan.php?id_pinjaman=<?= $row["id_pinjaman"]; ?>" onclick="return confirm('Yakin akan mengembalikan buku ini?');">Kembalikan</a> | 
-					<a class="btn signup" href="https://saweria.co/perpustakaanmawar";>Bayar Denda</a>
-				</div>
-			</td>
-		</tr>
-		<?php $i++; ?>
-		<?php endforeach; ?>
-	</table>
-</div>
 
 
 </body>
+
 </html>
