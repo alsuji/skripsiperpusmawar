@@ -1,0 +1,147 @@
+body {
+	font-family: "Lucida Grande";
+	position: static;
+	background-image: url(../images/bg1.jpg);
+	background-size: cover;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+/*CSS Header*/
+header {
+  height: 55px;
+  width: 100%;
+  background-color: rgba(55, 55, 55, 0.5);
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+.header-left {
+	float: left;
+}
+.header-left h1 {
+	font-size: 20px;
+	margin-top: 12px;
+	margin-left: 20px;
+	display: inline-block;
+	color: white;
+	font-weight: normal;
+}
+.logo {
+	float: left;
+	padding-left: 30px;
+	line-height: 10px;
+	width: 22px;
+	margin-top: 5px;
+	display: inline-block;
+}
+.header-right {
+	float: right;
+	margin-right: 70px;
+	background-color: rgba(255, 255, 255, 0.3);
+	transition: all 0.5;
+}
+.header-right:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.header-right a {
+  line-height: 55px;
+  padding: 0 35px;
+  color: white;
+  display: block;
+}
+
+.top-wrapper {
+	height: 400px;
+	color: white;
+	padding: 180px 0 60px 0;
+	text-align: center;
+}
+
+
+.top-wrapper h1 {
+	opacity: 1;
+	font-size: 50px;
+	letter-spacing: 3px;
+	line-height: 50px;
+	padding-top: 20px;
+	font-family: sans-serif;
+}
+
+.top-wrapper p {
+	opacity: 1;
+	margin-bottom: 3px;
+    letter-spacing: 2px;
+    font-family: serif;
+}
+
+.container {
+	width: 1000px;
+	margin: auto;
+	background-color: rgba(34, 49, 52, 0.4);
+}
+
+.btn-wrapper {
+	margin: 20px 0;
+	padding-bottom: 20px;
+}
+
+.btn-wrapper p {
+	margin: 10px 0;
+}
+
+.btn {
+	padding: 12px 24px;
+	color: white;
+	display: inline-block;
+	opacity: 1;
+	border-radius: 4px;
+}
+
+.btn:active {
+  position: relative;
+  top: 7px;
+  box-shadow: none;
+}
+
+.signup {
+	background-color: #239b76;
+	padding: 15px 40px;
+	cursor: pointer;
+	box-shadow: 0 7px #1a7940;
+}
+
+/*footer*/
+footer {
+  height: 55px;
+  width: 100%;
+  background-color: rgba(55, 55, 55, 0.5);
+  position: relative;
+  top: 100;
+  z-index: 10;
+}
+.footer-right {
+	float: right;
+}
+.footer-right h1 {
+	font-size: 20px;
+	margin-top: 12px;
+	margin-right: 20px;
+	display: inline-block;
+	color: white;
+	font-weight: normal;
+}
+.logo1 {
+	float: right;
+	padding: 5px 30px 20px 0px;
+	line-height: 10px;
+	width: 22px;
+	margin-bottom: 5px;
+	display: inline-block;
+}

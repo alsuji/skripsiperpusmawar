@@ -1,0 +1,149 @@
+body {
+	font-family: "Lucida Grande";
+	background-image: url(../images/bg1.jpg);
+	background-size: cover;
+	width: 100%;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+/*CSS Header*/
+header {
+  height: 55px;
+  width: 100%;
+  background-color: rgba(55, 55, 55, 0.5);
+  position: absolute;
+  top: 0;
+  z-index: 10;
+}
+.header-left {
+	float: left;
+}
+.header-left h1 {
+	font-size: 20px;
+	margin-top: 12px;
+	margin-left: 20px;
+	display: inline-block;
+	color: white;
+	font-weight: normal;
+}
+.logo {
+	float: left;
+	padding-left: 30px;
+	line-height: 10px;
+	width: 22px;
+	margin-top: 5px;
+	display: inline-block;
+}
+.nav-tabs {
+	float: right;
+	margin-right: 10px;
+	margin-top: 0;
+}
+.nav-item {
+	float: left;
+	margin-right: 5px;
+	background-color: rgba(255, 255, 255, 0.3);
+	transition: all 0.5;
+}
+.nav-item:hover {
+  background-color: rgba(41, 52, 98);
+}
+.nav-item a {
+  line-height: 55px;
+  padding: 0 35px;
+  color: white;
+  display: block;
+}
+
+/*btn-regist*/
+.btn-wrapper {
+	margin: 0 20px;
+}
+.btn {
+	padding: 10px 20px;
+	color: white;
+	display: inline-block;
+	opacity: 1;
+	border-radius: 4px;
+}
+.btn:active {
+  position: relative;
+  top: 7px;
+  box-shadow: none;
+}
+.signup {
+	background-color: #239b76;
+	padding: 3px 16px;
+	cursor: pointer;
+	box-shadow: 0 7px #1a7940;
+}
+
+.pinjamBuku {
+	background-color: #239b76;
+	padding: 3px 16px;
+	cursor: pointer;
+	box-shadow: 0 7px #1a7940;
+}
+
+.container {
+	background-color: rgba(0, 0, 0, 0.5);
+	margin-top: 60px;
+	width: 100%;
+}
+.container h2 {
+	padding-top: 50px;
+	margin-left: 20px;
+	color: white;
+}
+.item {
+	background-color: rgba(255, 255, 255, 0.7);
+	margin: 20px 0 20px 0;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	padding: 20px 0;
+}
+.img {
+	position: center;
+	width: 22px;
+}
+
+table {
+	background-color: white;
+	margin: 18px;
+}
+
+input[type="text"] {
+	text-align: center;
+	width: 300px;
+	padding: 7px 7px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: none;
+	margin: 20px; 
+}
+
+/*Style Button*/
+button {
+	text-align: center;
+	width: 100px;
+	padding: 7px 7px;
+	color: black;
+	border-radius: 5px;
+	background-color: #ddd;
+	cursor: pointer;
+}
+button:hover {
+	position: center;
+	background-color: #38E54D;
+}
+button:active {
+	width: 80px;
+}

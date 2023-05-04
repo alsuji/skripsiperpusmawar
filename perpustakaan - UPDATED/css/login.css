@@ -1,0 +1,180 @@
+body {
+	font-family: "Lucida Grande";
+	position: static;
+	background-image: url(../images/bg1.jpg);
+	background-size: cover;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+/*CSS Header*/
+header {
+  height: 55px;
+  width: 100%;
+  background-color: rgba(55, 55, 55, 0.5);
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+.header-left {
+	float: left;
+}
+.header-left h1 {
+	font-size: 20px;
+	margin-top: 12px;
+	margin-left: 20px;
+	display: inline-block;
+	color: white;
+	font-weight: normal;
+}
+.logo {
+	float: left;
+	padding-left: 30px;
+	line-height: 10px;
+	width: 22px;
+	margin-top: 5px;
+	display: inline-block;
+}
+/*.header-right {
+	float: right;
+	margin-right: 70px;
+	background-color: rgba(255, 255, 255, 0.3);
+	transition: all 0.5;
+}
+.header-right:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.header-right a {
+  line-height: 55px;
+  padding: 0 35px;
+  color: white;
+  display: block;
+}*/
+
+.container {
+	width: 1170px;
+	margin: auto;
+	padding-top: 60px;
+	margin-bottom: 550px;
+}
+
+.main {
+	float: left;
+	margin-left: 50px;
+	padding: 10px 10px 60px 0px;
+	color: white;
+	text-align: center;
+}
+
+.login-box {
+	float: center;
+	text-align: center;
+	width: 500px;
+	margin: auto;
+	padding-top: 10px;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.login-box img {
+	width: 150px;
+	border-radius: 50%;
+	margin-bottom: 20px;
+}
+
+h3 {
+	text-align: center;	
+	color: white;
+	font-size: 30px;
+	font-family: sans-serif;
+}
+
+input[type="text"], [type="password"] {
+	text-align: center;
+	width: 300px;
+	padding: 10px 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: none;
+}
+
+ul li {
+	margin-bottom: 10px;
+}
+
+button {
+	border: none;
+}
+
+/*.submitb {
+  padding: 15px 40px;
+  background-color: #55acee;
+  cursor: pointer;
+  box-shadow: 0 7px #000040;
+}
+
+.submitb:active {
+  position: relative;
+  top: 7px;
+  box-shadow: none;
+}*/
+
+.btn {
+	width: 	300px;
+	padding: 12px 24px;
+	color: white;
+	display: inline-block;
+	opacity: 1;
+	border-radius: 4px;
+}
+
+.btn-wrapper {
+	margin: 20px 0;
+	padding-bottom: 30px;
+}
+
+.submits {
+  background-color: #5dca88;
+  cursor: pointer;
+  box-shadow: 0 7px #1a7940;
+}
+
+.submits:active {
+  position: relative;
+  top: 7px;
+  box-shadow: none;
+}
+/*footer*/
+footer {
+  height: 55px;
+  width: 100%;
+  background-color: rgba(55, 55, 55, 0.5);
+  margin-top: 20px;
+  position: fixed;
+  top: 500;
+  z-index: 9;
+}
+.footer-right {
+	float: right;
+}
+.footer-right h1 {
+	font-size: 20px;
+	margin-top: 12px;
+	margin-right: 20px;
+	display: inline-block;
+	color: #ddd;
+	font-weight: normal;
+}
+.logo1 {
+	float: right;
+	padding: 5px 30px 20px 0px;
+	line-height: 10px;
+	width: 22px;
+	margin-bottom: 5px;
+	display: inline-block;
+}
